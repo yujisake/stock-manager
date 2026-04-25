@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* ===== 土田酒造 カラーパレット ===== */
+:root {
+  /* 基本色 */
+  --washi: #f8f5f0;       /* 和紙：背景 */
+  --sumi: #1a1a1a;        /* 墨：テキスト */
+  --sumi-light: #4a4a4a;  /* 薄墨：サブテキスト */
+
+  /* ブランドカラー */
+  --moss: #2d5a3d;        /* 深緑：プライマリ */
+  --moss-light: #3d7a55;  /* 若緑：ホバー */
+  --moss-pale: #e8f2ec;   /* 淡緑：背景アクセント */
+
+  /* アクセント */
+  --gold: #b8963e;        /* 金：アクセント */
+  --gold-pale: #f5edda;   /* 淡金：背景 */
+  --amber: #c27c1a;       /* 琥珀：警告（残少） */
+  --amber-pale: #fef3e2;  /* 淡琥珀：警告背景 */
+
+  /* ボーダー・区切り */
+  --border: #e0d8ce;      /* 和紙の縁 */
+  --border-strong: #c5b99b; /* 濃い縁 */
+}
+
+@theme inline {
+  --color-washi: var(--washi);
+  --color-sumi: var(--sumi);
+  --color-sumi-light: var(--sumi-light);
+  --color-moss: var(--moss);
+  --color-moss-light: var(--moss-light);
+  --color-moss-pale: var(--moss-pale);
+  --color-gold: var(--gold);
+  --color-gold-pale: var(--gold-pale);
+  --color-amber: var(--amber);
+  --color-amber-pale: var(--amber-pale);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: var(--washi);
+  color: var(--sumi);
+}
+
+/* ===== トースト通知 ===== */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes toast-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(16px); }
+}
+.toast-enter { animation: toast-in 0.25s ease-out forwards; }
+.toast-exit  { animation: toast-out 0.25s ease-in forwards; }
+
+/* ===== タイムライン ===== */
+.timeline-line {
+  position: absolute;
+  left: 11px;
+  top: 20px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
